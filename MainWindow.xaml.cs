@@ -38,7 +38,6 @@ namespace Generator
                     if (btn.Name.ToLower() == szoveg)
                     {
                         letezik = true;
-                        MessageBox.Show("Ez az elem már létezik!");
                         break;
                     }
                 }
@@ -48,7 +47,6 @@ namespace Generator
                     if (txt.Name.ToLower() == szoveg)
                     {
                         letezik = true;
-                        MessageBox.Show("Ez az elem már létezik!");
                         break;
                     }
                 }
@@ -72,6 +70,10 @@ namespace Generator
                     blokk.Margin = new Thickness(5);
                     panel.Children.Add(blokk);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Ez az elem már létezik!");
             }
         }
         public void NameButtonClick(object sender, RoutedEventArgs e)

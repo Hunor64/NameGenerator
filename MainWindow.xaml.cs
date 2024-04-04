@@ -29,12 +29,13 @@ namespace Generator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool letezik = false;
+            string szoveg = txtName.Text.ToLower().Trim();
             foreach (var elem in panel.Children)
             {
                 if (elem is Button)
                 {
                     Button btn = (Button)elem;
-                    if (btn.Name.ToLower() == txtName.Text.ToLower())
+                    if (btn.Name.ToLower() == szoveg)
                     {
                         letezik = true;
                         MessageBox.Show("Ez az elem már létezik!");
@@ -44,7 +45,7 @@ namespace Generator
                 else if (elem is TextBlock)
                 {
                     TextBlock txt = (TextBlock)elem;
-                    if (txt.Name.ToLower() == txtName.Text.ToLower())
+                    if (txt.Name.ToLower() == szoveg)
                     {
                         letezik = true;
                         MessageBox.Show("Ez az elem már létezik!");
@@ -52,34 +53,35 @@ namespace Generator
                     }
                 }
             }
-            if (rdbButton.IsChecked == true)
+            if (!letezik)
             {
-
-                if (!letezik)
+                if (rdbButton.IsChecked == true)
                 {
-                    Button gomb = new();
-                    gomb.Click += NameButtonClick;
-                    gomb.Content = txtName.Text;
-                   
-                    gomb.Name = txtName.Text;
-                    panel.Children.Add(gomb);
+                    {
+                        Button gomb = new();
+                        gomb.Click += NameButtonClick;
+                        gomb.Content = szoveg;
+                        gomb.Name = szoveg;
+                        panel.Children.Add(gomb);
+                    }
                 }
-            }
-            else if (rdbTextBlock.IsChecked == true)
-            {
-                if (!letezik)
+                else if (rdbTextBlock.IsChecked == true)
                 {
                     TextBlock blokk = new();
-                    blokk.Text = txtName.Text;
-                    blokk.Name = txtName.Text;
+                    blokk.Text = szoveg;
+                    blokk.Name = szoveg;
                     panel.Children.Add(blokk);
                 }
             }
         }
         public void NameButtonClick(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            MessageBox.Show($"Szia {btn.Name} vagyok!");
+            if (sender is Button)
+            {
+                Button btn = (Button)sender;
+                MessageBox.Show($"Szia {btn.Name} vagyok!");
+
+            }
         }
     }
 }

@@ -29,14 +29,14 @@ namespace Generator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool letezik = false;
-            string szoveg = txtName.Text.ToLower().Trim();
+            string szoveg = txtName.Text.Trim();
 
             foreach (var elem in panel.Children)
             {
                 if (elem is Button)
                 {
                     Button btn = (Button)elem;
-                    if (btn.Name.ToLower() == szoveg)
+                    if (btn.Name.ToLower() == szoveg.ToLower())
                     {
                         letezik = true;
                         break;
@@ -45,7 +45,7 @@ namespace Generator
                 else if (elem is TextBlock)
                 {
                     TextBlock txt = (TextBlock)elem;
-                    if (txt.Name.ToLower() == szoveg)
+                    if (txt.Name.ToLower() == szoveg.ToLower())
                     {
                         letezik = true;
                         break;
@@ -53,7 +53,7 @@ namespace Generator
                 }
             }
 
-            if (!letezik)
+            if (!letezik && szoveg != "")
             {
 
                 if (rdbButton.IsChecked == true)
@@ -76,7 +76,7 @@ namespace Generator
                 }
             }
 
-            else
+            else if (letezik)
             {
                 MessageBox.Show("Ez az elem már létezik!");
             }

@@ -61,6 +61,7 @@ namespace Generator
                     gomb.Click += NameButtonClick;
                     gomb.Content = szoveg;
                     gomb.Name = szoveg;
+                    gomb.Margin = new Thickness(5);
                     panel.Children.Add(gomb);
                 }
                 else if (rdbTextBlock.IsChecked == true)
@@ -68,6 +69,7 @@ namespace Generator
                     TextBlock blokk = new();
                     blokk.Text = szoveg;
                     blokk.Name = szoveg;
+                    blokk.Margin = new Thickness(5);
                     panel.Children.Add(blokk);
                 }
             }

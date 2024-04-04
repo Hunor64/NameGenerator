@@ -30,6 +30,7 @@ namespace Generator
         {
             bool letezik = false;
             string szoveg = txtName.Text.ToLower().Trim();
+
             foreach (var elem in panel.Children)
             {
                 if (elem is Button)
@@ -51,8 +52,10 @@ namespace Generator
                     }
                 }
             }
+
             if (!letezik)
             {
+
                 if (rdbButton.IsChecked == true)
                 {
                     Button gomb = new();
@@ -62,6 +65,7 @@ namespace Generator
                     gomb.Margin = new Thickness(5);
                     panel.Children.Add(gomb);
                 }
+
                 else if (rdbTextBlock.IsChecked == true)
                 {
                     TextBlock blokk = new();
@@ -71,6 +75,7 @@ namespace Generator
                     panel.Children.Add(blokk);
                 }
             }
+
             else
             {
                 MessageBox.Show("Ez az elem már létezik!");
@@ -82,7 +87,6 @@ namespace Generator
             {
                 Button btn = (Button)sender;
                 MessageBox.Show($"Szia {btn.Name} vagyok!");
-
             }
         }
     }

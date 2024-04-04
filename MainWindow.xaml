@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBox x:Name="txtName" Margin="10px"/>
+            <RadioButton x:Name="rdbButton" Margin="10px" IsChecked="True">
+                <TextBlock Text="Button"/>
+            </RadioButton>
+            <RadioButton x:Name="rdbTextBlock" Margin="10px">
+                <TextBlock Text="TextBlock"/>
+            </RadioButton>
+            <Button Content="Felvesz" Margin="10px" Click="Button_Click"/>
+        </StackPanel>
+        <WrapPanel Grid.Column="1" x:Name="panel">
+            
+        </WrapPanel>
     </Grid>
 </Window>

@@ -29,27 +29,27 @@ namespace Generator
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool letezik = false;
-
-            var Gombok = this.panel.Children.OfType<Button>();
-            foreach (var elem in Gombok)
+            foreach (var elem in panel.Children)
             {
-                Button btn = (Button)elem;
-                if (btn.Name == txtName.Text)
+                if (elem is Button)
                 {
-                    letezik = true;
-                    MessageBox.Show("Ez az elem már létezik!");
-                    break;
+                    Button btn = (Button)elem;
+                    if (btn.Name.ToLower() == txtName.Text.ToLower())
+                    {
+                        letezik = true;
+                        MessageBox.Show("Ez az elem már létezik!");
+                        break;
+                    }
                 }
-            }
-            var Textek = this.panel.Children.OfType<TextBlock>();
-            foreach (var elem in Textek)
-            {
-                TextBlock txt = (TextBlock)elem;
-                if (txt.Name == txtName.Text)
+                else if (elem is TextBlock)
                 {
-                    letezik = true;
-                    MessageBox.Show("Ez az elem már létezik!");
-                    break;
+                    TextBlock txt = (TextBlock)elem;
+                    if (txt.Name.ToLower() == txtName.Text.ToLower())
+                    {
+                        letezik = true;
+                        MessageBox.Show("Ez az elem már létezik!");
+                        break;
+                    }
                 }
             }
             if (rdbButton.IsChecked == true)
@@ -60,6 +60,7 @@ namespace Generator
                     Button gomb = new();
                     gomb.Click += NameButtonClick;
                     gomb.Content = txtName.Text;
+                   
                     gomb.Name = txtName.Text;
                     panel.Children.Add(gomb);
                 }

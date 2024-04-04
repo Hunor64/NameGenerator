@@ -21,7 +21,7 @@
             </RadioButton>
             <Button Content="Felvesz" Margin="10px" Click="Button_Click"/>
         </StackPanel>
-        <WrapPanel Grid.Column="1" x:Name="panel">
+        <WrapPanel Grid.Column="1" x:Name="panel" Background="AliceBlue">
             
         </WrapPanel>
     </Grid>

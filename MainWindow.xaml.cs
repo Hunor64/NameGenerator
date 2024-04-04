@@ -57,13 +57,11 @@ namespace Generator
             {
                 if (rdbButton.IsChecked == true)
                 {
-                    {
-                        Button gomb = new();
-                        gomb.Click += NameButtonClick;
-                        gomb.Content = szoveg;
-                        gomb.Name = szoveg;
-                        panel.Children.Add(gomb);
-                    }
+                    Button gomb = new();
+                    gomb.Click += NameButtonClick;
+                    gomb.Content = szoveg;
+                    gomb.Name = szoveg;
+                    panel.Children.Add(gomb);
                 }
                 else if (rdbTextBlock.IsChecked == true)
                 {
